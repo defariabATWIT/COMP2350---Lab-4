@@ -3,26 +3,15 @@ import static java.lang.Math.sqrt;
 
 public class Points
 {
-public static void points()
+public static void points(int[] x, double[] y)
 	{
-		int length = 10;
-		double[] x = new double[ length ];
-		double[] y = new double[ length ];
-		
-		for ( int i = 0 ; i < length ; i++ )
-			{
-				x[ i ] = i + 1;
-				y[ i ] = sqrt( i + 1 );
-				// System.out.println(x[ i ] + "|" + y[ i ]);
-			}
-		
 		double d = Double.POSITIVE_INFINITY;
 		int pointA = 0;
 		int pointB = 0;
 		
-		for ( int i = 0 ; i < length ; i++ )
+		for ( int i = 0 ; i < x.length ; i++ )
 			{
-				for ( int j = 0 ; j < length ; j++ )
+				for ( int j = 0 ; j < y.length ; j++ )
 					{
 						if ( i != j )
 							{
@@ -45,6 +34,19 @@ public static void points()
 
 public static void main( String[] args )
 	{
-		points();
+		// Determines the length of the arrays
+		int length = 10;
+		int[] x = new int[ length ];
+		double[] y = new double[ length ];
+		
+		// X is iterated as 1 to the length (i.e. length 3 is [1, 2, 3]
+		// Y is iterated as the square root of the respective value in X
+		for ( int i = 0 ; i < length ; i++ )
+			{
+				x[ i ] = i + 1;
+				y[ i ] = sqrt( i + 1 );
+			}
+		
+		points( x, y );
 	}
 }
